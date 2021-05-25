@@ -6,22 +6,41 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Important For run this project
+1. Download this project & if you have installed php environment (Wamp/Xamp server) them put extracted direcory in wamp->www folder Otherwise place anywhere (You can login with static credentials) 
+     -- Create database in mysql phpmyadmin
+     -- import database.sql file in created database
+     -- change database name in server->database.php file
+     -- 
 
-## Build
+2. Run npm install command for install dependencies
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+3. Run ng serve --open for compile 
 
-## Running unit tests
+4. Navigate to browser with `http://localhost:4200/`  
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+5. If you could not setup environment for php then, Login with static credentials 
+   -- EMail : 'n@gmail.com' Password: 'admin123'
 
-## Running end-to-end tests
+6. If you could not setup this project on local environment then visit -> 
+   'https://neeta-user-register-login-subscriptions.netlify.app'
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+## References for stripe payment integration 
+  -- https://stripe.com/docs/testing#cards
+  
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## API description
+   -- Created with Angular as frontend & Core PHP and MySql as Backend. 
+   -- Every request from Angular will communicate with server.service.ts file and 
+   -- server.service will pass it to the => server/server.php.
+   -- Server.php will decide whether can access php function according to loggedIn flag.
+   -- Database.php file is for establish connection with mysql.
+   -- session.php file for establish session and can use with throught application.
+   -- Password is encrpted using MD5 encryption method 
+   -- Stripe Payment Gateway used for payments Enter 4242 4242 4242 4242 as Card number 
+      (Beacause this is demo payment mode). After making payment token is generated and received in my stripe dashboard
+   -- Tried to follow project instructions like routing, lazy loading, auth-guard, scss styling, 
+      material design, flex layout, 
+
