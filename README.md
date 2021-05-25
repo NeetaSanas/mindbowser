@@ -23,9 +23,6 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 5. If you could not setup environment for php then, Login with static credentials 
    -- EMail : 'n@gmail.com' Password: 'admin123'
 
-6. If you could not setup this project on local environment then visit -> 
-   'https://neeta-user-register-login-subscriptions.netlify.app'
-
 
 ## References for stripe payment integration 
   -- https://stripe.com/docs/testing#cards

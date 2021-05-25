@@ -12,13 +12,13 @@
                   <a mat-button routerLink="/register" color="accent" class="w-100">Don't have an account? Sign up now!</a>
                   <mat-form-field class="w-100">
                       <mat-icon matPrefix class="mat-icon-sm mb-2 mr-2 ">email</mat-icon>
-                      <input matInput placeholder="Email" formControlName="email">
+                      <input matInput placeholder="Email" formControlName="email" required>
                       <mat-error *ngIf="form.controls.email.errors?.required">Email is required</mat-error>
                       <mat-error *ngIf="form.controls.email.hasError('invalidEmail')">Invalid email address</mat-error>
                   </mat-form-field>
                   <mat-form-field class="w-100">
                       <mat-icon matPrefix class="mat-icon-sm mb-2 mr-2">lock</mat-icon>
-                      <input matInput placeholder="Password" formControlName="password" [type]="pwToggle.type">
+                      <input matInput placeholder="Password" formControlName="password" required [type]="pwToggle.type">
   
                       <button matTooltip="View Password" mat-icon-button matSuffix appPasswordToggle #pwToggle="appPasswordToggle">
                           <mat-icon matPrefix class="mat-icon-sm mb-2 mr-2 ">remove_red_eye</mat-icon>
