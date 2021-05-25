@@ -1,0 +1,38 @@
+<h4>{{message}}</h4>
+<mat-sidenav-container  class="h-100">
+    <div fxLayout="row" fxLayoutAlign="center center" class="h-100 container">
+         <form [formGroup]="form" style="background-color: #f3f3f3;" fxFlex="90" fxFlex.gt-sm="30" fxFlex.sm="60" class="mat-elevation-z6">
+              <app-content-header 
+                  [icon]="'exit_to_app'" 
+                  [title]="'Login'" 
+                 
+                  [hasBgImage]="true" 
+                  [class]="'card-spacing'"></app-content-header>            
+                <div class="p-3">
+                  <a mat-button routerLink="/register" color="accent" class="w-100">Don't have an account? Sign up now!</a>
+                  <mat-form-field class="w-100">
+                      <mat-icon matPrefix class="mat-icon-sm mb-2 mr-2 ">email</mat-icon>
+                      <input matInput placeholder="Email" formControlName="email">
+                      <mat-error *ngIf="form.controls.email.errors?.required">Email is required</mat-error>
+                      <mat-error *ngIf="form.controls.email.hasError('invalidEmail')">Invalid email address</mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="w-100">
+                      <mat-icon matPrefix class="mat-icon-sm mb-2 mr-2">lock</mat-icon>
+                      <input matInput placeholder="Password" formControlName="password" [type]="pwToggle.type">
+  
+                      <button matTooltip="View Password" mat-icon-button matSuffix appPasswordToggle #pwToggle="appPasswordToggle">
+                          <mat-icon matPrefix class="mat-icon-sm mb-2 mr-2 ">remove_red_eye</mat-icon>
+                      </button>
+                      <mat-error *ngIf="form.controls.password.errors?.required">Password is required</mat-error>
+                      <mat-error *ngIf="form.controls.password.hasError('minlength')">Password isn't long enough, minimum of 6 characters</mat-error>
+                  </mat-form-field>               
+                  
+                  <button (click)="onSubmit()" mat-raised-button color="primary" class="mat-elevation-z6 w-100 mt-3" type="submit">SIGN IN</button>
+              </div>
+              <a mat-button (click)="forgotPassword()" color="accent" class="w-100">Forgot Password?</a>
+             
+          </form>
+          
+    </div>
+    
+  </mat-sidenav-container>

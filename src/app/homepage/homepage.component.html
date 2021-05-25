@@ -1,0 +1,74 @@
+<mat-toolbar class ="mat-toolbar" fxLayout="row" fxLayoutAlign="space-between center" class="px-2 user-toolbar">
+    <div fxLayout="row">
+        <img src="assets/logo.png" width="50" height="50" class="transition mb-2">  
+    </div>
+    
+    <div fxLayout="row">
+        <button matTooltip="Logout"  mat-raised-button color="primary" (click)="logout()" class="right-align mx-2">Logout</button>
+    </div>
+</mat-toolbar>
+<app-content-header 
+[icon]="''" [title]="'Subscriptions'" 
+[desc]="''"
+[hasBgImage]="true" 
+[class]="'pb-4'"></app-content-header>
+
+<br><br>
+<div>
+<div fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="subscriptionList">
+    <h2 class="place-center">Current Subscriptions</h2>
+    <div *ngFor="let s of subscriptionList" fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="place-center"><!--class="p-2"-->
+        <mat-card class="pricing-card text-center p-0" *ngIf="!showSubscription" >
+            <div class="bg-accent pricing-header p-3" fxLayout="column" fxLayoutAlign="center center" style="background: #f3f3f3 !important;"> 
+                <h2 class="pricing-title my-3">{{s.package_name}}</h2>  
+                <h3>$ {{s.price}}<small> /mo</small></h3>
+                <p>Started On: {{s.start_date}}</p>
+                <p>Expired On: {{s.end_date}}</p>
+                <p hidden>ID {{s.subscription_id}}</p>
+            </div>
+            <div class="secondary-text-color" style="margin:10px" style="background: #f3f3f3 !important;"> 
+                <button mat-raised-button color="primary" (click)="cancel(s.subscription_id)" class="mt-3">Cancel</button>&nbsp;
+                <button mat-raised-button color="primary" (click)="resume(s.subscription_id)" class="mt-3">Resume</button>
+            </div>
+        </mat-card>
+    </div>
+    
+</div>
+
+<div *ngIf="!subscriptionList" class="place-center">
+    <h3>You don't have any subscriptions, Please choose package which suits you business.</h3>
+</div>
+<br><mat-divider></mat-divider><br>
+
+<div fxLayout="row wrap" fxLayoutAlign="center center" class="all place-center">
+    <h2 class="place-center">Select Package For Your Business</h2>
+    <div *ngFor="let item of items" fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" ><!--class="p-2"-->
+        <mat-card class="pricing-card text-center p-0">
+            <h2 class="pricing-title my-3">{{item.package_name}}</h2>
+            <div class="bg-accent pricing-header p-3" fxLayout="column" fxLayoutAlign="center center">   
+                <h1>$ {{item.price}}<small> /mo</small></h1>
+                <p class="desc mb-2">{{item.desc}}</p>
+            </div>
+            <div class="secondary-text-color p-3">
+                <p class="py-2">{{item.count}} Items</p>
+                <p class="py-2">{{item.storage}} Storage</p>
+                <p class="py-2" [class.del]="!item.support">24/7 Support</p>
+                <p class="py-2" [class.del]="!item.ssl">SSL Certificate</p>
+                <button mat-raised-button color="primary" (click)="buy(item)" class="mt-3">Buy now</button>
+            </div>
+        </mat-card>
+    </div>
+</div>
+
+</div>
+
+
+
+
+<mat-toolbar color="primary" class="landing-footer mt-5">
+    <div fxLayout.xs="column" fxLayout.gt-xs="row wrap" fxLayoutAlign="space-between center" class="w-100">
+        <span>Copyright ©2021 All Rights Reserved</span>
+        <span style="position: absolute; right:0;">Designed by  <a mat-button href="https://www.linkedin.com/in/neeta-sanas-1567baa3/" target="blank">Neeta Sanas</a></span>
+    </div>
+</mat-toolbar>
+

@@ -1,0 +1,68 @@
+<mat-sidenav-container class="h-100">
+    <div fxLayout="row" fxLayoutAlign="center center" class="h-100 container">
+         <form [formGroup]="form" (ngSubmit)="onSubmit()" style="background-color: #f3f3f3;" fxFlex="90" fxFlex.gt-sm="30" fxFlex.sm="60" class="mat-elevation-z6">
+              <app-content-header 
+                  [icon]="'person_add'" 
+                  [title]="'Register'" 
+                  [hasBgImage]="true" 
+                  [class]="'card-spacing'"></app-content-header>            
+              <div class="p-3">
+                  <a mat-button routerLink="/login" color="accent" class="w-100">Already have an account? Sign in!</a>
+                  <mat-form-field class="w-100">
+                      <mat-icon matPrefix class="mat-icon-sm mb-2 mr-2">person</mat-icon>
+                      <input matInput placeholder="First Name" formControlName="first_name" required>
+                      <mat-error *ngIf="form.controls.first_name.errors?.required">First Name is required</mat-error>
+                      <mat-error *ngIf="form.controls.first_name.hasError('minlength')">First Name isn't long enough, minimum of 3 characters</mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="w-100">
+                      <mat-icon matPrefix class="mat-icon-sm mb-2 mr-2">person</mat-icon>
+                      <input matInput placeholder="Last Name" formControlName="last_name" required>
+                      <mat-error *ngIf="form.controls.last_name.errors?.required">Last Name is required</mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="w-100">
+                      <mat-icon matPrefix class="mat-icon-sm mb-2 mr-2">mail</mat-icon>
+                      <input matInput placeholder="Email" formControlName="email" required>
+                      <mat-error *ngIf="form.controls.email.errors?.required">Email is required</mat-error>
+                      <mat-error *ngIf="form.controls.email.hasError('invalidEmail')">Invalid email address</mat-error>
+                      <mat-error *ngIf="form.controls.email.errors?.invalid">{{form.controls.email.errors.message}}</mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field class="w-100">
+                     <mat-icon matPrefix class="mat-icon-sm mb-2 mr-2">event</mat-icon>
+                   <!-- <input matInput placeholder="Birthdate" [max]="maxDate" type="date" formControlName="birthdate" id="birthdate" name="birthdate" 
+                    style="font-family: 'PT Sans', sans-serif; font-size: 1rem;"> -->
+                    <input matInput [matDatepicker]="picker" [max]="maxDate" formControlName="birthdate" placeholder="Birthdate">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker ></mat-datepicker>
+                    <mat-error *ngIf="form.controls.birthdate.errors?.required">Birthdate is required</mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field class="w-100">
+                    <mat-icon matPrefix class="mat-icon-sm mb-2 mr-2">location_on</mat-icon>
+                    <input matInput placeholder="Address" formControlName="address" required>
+                    <mat-error *ngIf="form.controls.address.errors?.required">Address is required</mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field class="w-100">
+                    <mat-icon matPrefix class="mat-icon-sm mb-2 mr-2">work</mat-icon>
+                    <input matInput placeholder="Company Name" formControlName="company">
+                  </mat-form-field>
+                  
+                  <mat-form-field class="w-100">
+                      <mat-icon matPrefix class="mat-icon-sm mb-2 mr-2">lock</mat-icon>
+                      <input matInput placeholder="Password" required formControlName="password" type="password" minlength="6">
+                      <mat-error *ngIf="form.controls.password.errors?.required">Password is required</mat-error>
+                      <mat-error *ngIf="form.controls.password.hasError('minlength')">Password isn't long enough, minimum of 6 characters</mat-error>
+                  </mat-form-field> 
+                  <mat-form-field class="w-100">
+                      <mat-icon matPrefix class="mat-icon-sm mb-2 mr-2">lock</mat-icon>
+                      <input matInput placeholder="Confirm Password" required formControlName="confirmPassword" type="password">
+                      <mat-error *ngIf="form.controls.confirmPassword.errors?.required">Confirm Password is required</mat-error>
+                      <mat-error *ngIf="form.controls.confirmPassword.hasError('mismatchedPasswords')">Passwords do not match</mat-error>
+                  </mat-form-field>
+                  <button mat-raised-button color="primary" [disabled]="!form.valid" class="mat-elevation-z6 w-100 mt-3" type="submit">REGISTER</button>
+              </div>
+          </form>
+  
+    </div>
+  </mat-sidenav-container>
