@@ -24,6 +24,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
    -- EMail : 'n@gmail.com' Password: 'admin123' (Stored in src/assets/users.json file)
 
 
+
 ## References for stripe payment integration 
   -- https://stripe.com/docs/testing#cards
   

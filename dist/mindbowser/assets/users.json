@@ -1,0 +1,15 @@
+
+    [
+        {
+            "user_id": 1,
+            "firstname": "Neets",
+            "lastname" : "Sansa",
+            "email": "n@gmail.com",
+            "password": "admin123",
+            "address": "pune",
+            "birthdate":"1995-01-09",
+            "company_name":"Gamut"
+        }
+       
+    ]
+  
